@@ -8,20 +8,20 @@
 
 #import "ViewController.h"
 
-@implementation ViewController
+@implementation ViewController{
+    IBOutlet NSDatePicker *_datePicker;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Do any additional setup after loading the view.
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    // choose a non-sunday first weekday, but the NSDatePicker still
+    // shows the calendar starting on Sunday
+    [calendar setFirstWeekday:3];
+    
+    [_datePicker setCalendar:calendar];
 }
-
-
-- (void)setRepresentedObject:(id)representedObject {
-    [super setRepresentedObject:representedObject];
-
-    // Update the view, if already loaded.
-}
-
 
 @end
